@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import BasicTextComponent from './components/BasicTextComponent/BasicTextComponent';
+import BasicTextComponent from './components/BasicTextComponent/index';
 import BasicLineComponent from './components/BasicLineComponent/index';
 
 
