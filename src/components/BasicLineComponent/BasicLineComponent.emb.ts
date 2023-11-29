@@ -34,6 +34,11 @@ export const meta = {
         dataset: "ds",
       },
     },
+    {
+      name: 'showLegend',
+      type: 'boolean',
+      label: 'Toggle the legend',
+    },
   ],
   events: []
 };

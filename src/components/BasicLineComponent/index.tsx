@@ -21,10 +21,13 @@ ChartJS.register(
   Legend
 );
 
-const chartOptions = (title) => ({
+const chartOptions = (title, showLegend) => ({
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
+    legend: {
+      display: showLegend
+    },
     title: {
       display: true,
       text: title,
@@ -50,6 +53,7 @@ const msg = message => <div>{message}</div>
 
 type Props = {
   title: string;
+  showLegend: boolean;
   ds: Dataset;
   xAxis: Dimension;
   yAxis: Measure;
@@ -59,7 +63,7 @@ type Props = {
 export default (props: Props) => {
   console.log(props);//TODO: cleanup
   
-  const { results, xAxis, yAxis, title } = props;
+  const { results, xAxis, yAxis, title, showLegend } = props;
   const { isLoading, data, error } = results;
 
   if(isLoading) {
@@ -72,6 +76,6 @@ export default (props: Props) => {
     return msg('!!!'); // fixes BUG: isLoading returns false before data is ready
   }
 
-  return <Bar options={chartOptions(title)} 
+  return <Bar options={chartOptions(title, showLegend)} 
               data={chartData(data, xAxis, yAxis)} />;
 };
