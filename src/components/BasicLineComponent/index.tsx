@@ -48,26 +48,6 @@ const chartData = (data, xAxis, yAxis) => {
 
 const msg = message => <div>{message}</div>
 
-const validateInputs = props => {
-  const { results, ds, xAxis, yAxis, title } = props;
-  const { isLoading, data, error } = results;
-  if(!ds) {
-    return msg('Choose your dataset')
-  }
-  if(!xAxis) {
-    return msg('Choose your x-axis')
-  }
-  if(!yAxis) {
-    return msg('Choose your y-axis');
-  }
-  if(isLoading) {
-    return msg('Loading...');
-  }
-  if(error) {
-    return msg('Unexpected error: '+error);
-  }
-}
-
 type Props = {
   title: string;
   ds: Dataset;
@@ -80,12 +60,14 @@ export default (props: Props) => {
   console.log(props);//TODO: cleanup
   
   const { results, xAxis, yAxis, title } = props;
-  const { data } = results;
+  const { isLoading, data, error } = results;
 
-  const error = validateInputs(props);
-  if(error) 
-    return error;
-  
+  if(isLoading) {
+    return msg('Loading...');
+  }
+  if(error) {
+    return msg('Unexpected error: '+error);
+  }
   if(!data) {
     return msg('!!!'); // fixes BUG: isLoading returns false before data is ready
   }
