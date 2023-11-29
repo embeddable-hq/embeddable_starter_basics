@@ -1,7 +1,15 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { Card, LineChart, Title } from "@tremor/react";
+import React from 'react';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Bar } from 'react-chartjs-2';
 
-import '../index.css' // tailwind
 
 const chartdata = [
   {
@@ -32,19 +40,48 @@ const chartdata = [
   //...
 ];
 
-const valueFormatter = (number) => `$ ${new Intl.NumberFormat("us").format(number).toString()}`;
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+export const options = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      position: 'top' as const,
+    },
+    title: {
+      display: true,
+      text: 'Chart.js Bar Chart',
+    },
+  },
+};
+
+const labels = chartdata.map(d => d.year);
+
+export const data = {
+  labels,
+  datasets: [
+    {
+      label: 'Dataset 1',
+      data: chartdata.map(d => d['Export Growth Rate']),
+      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+    },
+    {
+      label: 'Dataset 2',
+      data: chartdata.map(d => d['Import Growth Rate']),
+      backgroundColor: 'rgba(53, 162, 235, 0.5)',
+    },
+  ],
+};
 
 export default () => (
-  <Card>
-    <Title>Export/Import Growth Rates (1970 to 2021)</Title>
-    <LineChart
-      className="mt-6"
-      data={chartdata}
-      index="year"
-      categories={["Export Growth Rate", "Import Growth Rate"]}
-      colors={["emerald", "gray"]}
-      valueFormatter={valueFormatter}
-      yAxisWidth={40}
-    />
-  </Card>
-);
+  <Bar options={options} data={data} />
+)

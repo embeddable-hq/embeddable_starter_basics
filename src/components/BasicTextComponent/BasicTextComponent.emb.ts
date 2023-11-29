@@ -26,8 +26,8 @@ export const meta = {
 export default defineComponent(Component, meta, {
   props: (inputs) => {
     return {
-      h1: inputs.title,
-      h2: inputs.body
+      title: inputs.title,
+      body: inputs.body
     };
   }
 });
