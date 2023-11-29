@@ -24,6 +24,7 @@ cubes:
     measures:
       - name: count
         type: count
+        title: '# of products'
 
     pre_aggregations:
     # Pre-aggregation definitions go here.

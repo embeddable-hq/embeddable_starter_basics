@@ -25,9 +25,6 @@ const chartOptions = (title) => ({
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
-    legend: {
-      display: false
-    },
     title: {
       display: true,
       text: title,
@@ -41,6 +38,7 @@ const chartData = (data, xAxis, yAxis) => {
     labels,
     datasets: [
       {
+        label: yAxis.title,
         data: data.map(d => d[yAxis.name]),
         backgroundColor: 'rgba(53, 162, 235, 0.7)',
       },
@@ -56,7 +54,9 @@ type Props = {
 };
 
 export default (props: Props) => {
-  // console.log(props);
+
+  console.log(props);
+
   const { results, xAxis, yAxis, title } = props;
   const { isLoading, data, error } = results;
   if(isLoading) {

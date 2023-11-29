@@ -1,5 +1,6 @@
 cubes:
   - name: customers
+    title: My customers
     sql_table: public.customers
 
     joins:
@@ -20,6 +21,7 @@ cubes:
       - name: country
         sql: country
         type: string
+        title: Country of origin
 
       - name: signed_up_at
         sql: signed_up_at
@@ -28,6 +30,7 @@ cubes:
     measures:
       - name: count
         type: count
+        title: '# of customers'
 
     pre_aggregations:
     # Pre-aggregation definitions go here.

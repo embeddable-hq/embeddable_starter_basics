@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <BasicLineComponent
         title='My first line chart'
         xAxis={{ name: 'country'}}
-        yAxis={{ name: 'count'}}
+        yAxis={{ name: 'count', title: '# of customers'}}
         results={{
           isLoading: false,
           error: null,

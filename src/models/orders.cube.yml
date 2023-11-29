@@ -27,6 +27,7 @@ cubes:
     measures:
       - name: count
         type: count
+        title: "# of orders"
         description: "Count of orders"
         meta:
           some_meta: "value"
