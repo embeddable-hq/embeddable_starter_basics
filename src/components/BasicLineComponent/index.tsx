@@ -9,7 +9,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { Dimension, Measure } from "@embeddable.com/core";
+import { Dimension, Measure, Dataset } from "@embeddable.com/core";
 import { DataResponse } from "@embeddable.com/react";
 
 ChartJS.register(
@@ -46,8 +46,11 @@ const chartData = (data, xAxis, yAxis) => {
   };
 }
 
+const msg = message => <div>{message}</div>
+
 type Props = {
   title: string;
+  ds: Dataset;
   xAxis: Dimension;
   yAxis: Measure;
   results: DataResponse;
@@ -57,13 +60,22 @@ export default (props: Props) => {
 
   console.log(props);
 
-  const { results, xAxis, yAxis, title } = props;
+  const { results, ds, xAxis, yAxis, title } = props;
   const { isLoading, data, error } = results;
+  if(!ds) {
+    return msg('Choose your dataset')
+  }
+  if(!xAxis) {
+    return msg('Choose your x-axis')
+  }
+  if(!yAxis) {
+    return msg('Choose your y-axis');
+  }
   if(isLoading) {
-    return <div>Loading...</div>
+    return msg('Loading...');
   }
   if(error) {
-    return <div>Error: {error}</div>
+    return msg('Unexpected error: '+error);
   }
   if(!data) {
     return; // fixes BUG: isLoading returns false before data is ready

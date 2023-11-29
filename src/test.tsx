@@ -16,6 +16,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <div style={{width: '100%', height: '300px'}}>
       <BasicLineComponent
         title='My first line chart'
+        ds={true}
         xAxis={{ name: 'country'}}
         yAxis={{ name: 'count', title: '# of customers'}}
         results={{

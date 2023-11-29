@@ -14,7 +14,7 @@ export const meta = {
       description: 'The title for the chart'
     },
     {
-      name: "data",
+      name: "ds",
       type: "dataset",
       label: "Dataset to display",
     },
@@ -23,7 +23,7 @@ export const meta = {
       type: "dimension",
       label: "X-axis",
       config: {
-        dataset: "data",
+        dataset: "ds",
       },
     },
     {
@@ -31,7 +31,7 @@ export const meta = {
       type: "measure",
       label: "Y-axis",
       config: {
-        dataset: "data",
+        dataset: "ds",
       },
     },
   ],
@@ -43,7 +43,7 @@ export default defineComponent(Component, meta, {
     return {
       ...inputs,
       results: loadData({
-        from: inputs.data,
+        from: inputs.ds,
         dimensions: [inputs.xAxis],
         measures: [inputs.yAxis],
       })
