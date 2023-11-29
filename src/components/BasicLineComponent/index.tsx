@@ -49,9 +49,6 @@ const chartData = (data, xAxis, yAxis) => {
 const msg = message => <div>{message}</div>
 
 const validate = props => {
-
-  console.log(props);//TODO: cleanup
-
   const { results, ds, xAxis, yAxis, title } = props;
   const { isLoading, data, error } = results;
   if(!ds) {
@@ -69,9 +66,6 @@ const validate = props => {
   if(error) {
     return msg('Unexpected error: '+error);
   }
-  if(!data) {
-    return msg('!!!'); // fixes BUG: isLoading returns false before data is ready
-  }
 }
 
 type Props = {
@@ -85,6 +79,11 @@ type Props = {
 export default (props: Props) => {
   const { results, xAxis, yAxis, title } = props;
   const { data } = results;
+
+  console.log(props);//TODO: cleanup
+  if(!data) {
+    return msg('!!!'); // fixes BUG: isLoading returns false before data is ready
+  }
 
   const error = validate(props);
   if(error) 
