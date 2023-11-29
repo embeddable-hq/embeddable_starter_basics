@@ -1,0 +1,30 @@
+cubes:
+  - name: products
+    sql_table: public.products
+
+    joins:
+      - name: orders
+        sql: "{CUBE}.id = {orders}.product_id"
+        relationship: one_to_many
+
+    dimensions:
+      - name: id
+        sql: id
+        type: number
+        primary_key: true
+
+      - name: name
+        sql: name
+        type: string
+
+      - name: size
+        sql: size
+        type: string
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+    # Pre-aggregation definitions go here.
+    # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started

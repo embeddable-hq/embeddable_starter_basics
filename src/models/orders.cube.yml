@@ -1,0 +1,36 @@
+cubes:
+  - name: orders
+    sql_table: public.orders
+
+    joins:
+      - name: products
+        sql: "{CUBE}.product_id = {products}.id"
+        relationship: many_to_one
+
+      - name: customers
+        sql: "{CUBE}.customer_id = {customers}.id"
+        relationship: many_to_one
+
+    dimensions:
+      - name: id
+        sql: id
+        type: number
+        primary_key: true
+
+      - name: created_at
+        sql: created_at
+        type: time
+        description: "The time when the order was created"
+        meta:
+          format: "%Y-%m-%d"
+
+    measures:
+      - name: count
+        type: count
+        description: "Count of orders"
+        meta:
+          some_meta: "value"
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started

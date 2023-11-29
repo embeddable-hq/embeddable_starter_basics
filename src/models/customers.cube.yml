@@ -1,0 +1,34 @@
+cubes:
+  - name: customers
+    sql_table: public.customers
+
+    joins:
+      - name: orders
+        sql: "{CUBE}.id = {orders}.customer_id"
+        relationship: one_to_many
+
+    dimensions:
+      - name: id
+        sql: id
+        type: number
+        primary_key: true
+
+      - name: email
+        sql: email
+        type: string
+
+      - name: country
+        sql: country
+        type: string
+
+      - name: signed_up_at
+        sql: signed_up_at
+        type: time
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+    # Pre-aggregation definitions go here.
+    # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
