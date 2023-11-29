@@ -9,37 +9,8 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-
-
-const chartdata = [
-  {
-    year: 1970,
-    "Export Growth Rate": 2.04,
-    "Import Growth Rate": 1.53,
-  },
-  {
-    year: 1971,
-    "Export Growth Rate": 1.96,
-    "Import Growth Rate": 1.58,
-  },
-  {
-    year: 1972,
-    "Export Growth Rate": 1.96,
-    "Import Growth Rate": 1.61,
-  },
-  {
-    year: 1973,
-    "Export Growth Rate": 1.93,
-    "Import Growth Rate": 1.61,
-  },
-  {
-    year: 1974,
-    "Export Growth Rate": 1.88,
-    "Import Growth Rate": 1.67,
-  },
-  //...
-];
-
+import { Dimension, Measure } from "@embeddable.com/core";
+import { DataResponse } from "@embeddable.com/react";
 
 ChartJS.register(
   CategoryScale,
@@ -50,38 +21,54 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
+const chartOptions = (title) => ({
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
     legend: {
-      position: 'top' as const,
+      display: false
     },
     title: {
       display: true,
-      text: 'Chart.js Bar Chart',
+      text: title,
     },
   },
+});
+
+const chartData = (data, xAxis, yAxis) => {
+  const labels = data.map(d => d[xAxis.name]);
+  return {
+    labels,
+    datasets: [
+      {
+        data: data.map(d => d[yAxis.name]),
+        backgroundColor: 'rgba(53, 162, 235, 0.7)',
+      },
+    ],
+  };
+}
+
+type Props = {
+  title: string;
+  xAxis: Dimension;
+  yAxis: Measure;
+  results: DataResponse;
 };
 
-const labels = chartdata.map(d => d.year);
+export default (props: Props) => {
+  // console.log(props);
+  const { results, xAxis, yAxis, title } = props;
+  const { isLoading, data, error } = results;
+  if(isLoading) {
+    return <div>Loading...</div>
+  }
+  if(error) {
+    return <div>Error: {error}</div>
+  }
+  if(!data) {
+    return; // fixes BUG: isLoading returns false before data is ready
+  }
 
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: chartdata.map(d => d['Export Growth Rate']),
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },
-    {
-      label: 'Dataset 2',
-      data: chartdata.map(d => d['Import Growth Rate']),
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-    },
-  ],
+  return <Bar options={chartOptions(title)} 
+              data={chartData(data, xAxis, yAxis)} />;
 };
-
-export default () => (
-  <Bar options={options} data={data} />
-)
