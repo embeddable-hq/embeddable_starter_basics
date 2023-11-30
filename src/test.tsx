@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import BasicTextComponent from './components/BasicTextComponent/index';
 import BasicLineComponent from './components/BasicLineComponent/index';
 import BasicToggleComponent from './components/BasicToggleComponent/index';
+import BasicTableComponent from './components/BasicTableComponent/index';
 
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -19,6 +20,25 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       label='Toggle me'
       onChange={console.log}
     />
+    {/**/}
+    <div style={{ width: '500px', height: '300px'}}>
+      <BasicTableComponent
+        columns={[
+          { name: 'name', title: 'Name'},
+          { name: 'age', title: 'Age'},
+          { name: 'gender', title: 'Gender'},
+          ]}
+        results={{
+          isLoading: false,
+          error: null,
+          data: [
+            { name: 'Bob', age: 36, gender: 'male' },
+            { name: 'Sam', age: 24, gender: 'female' },
+            { name: 'Charlie', age: 73, gender: 'male' },
+          ]
+        }}
+      />
+    </div>
     {/**/}
     <div style={{width: '100%', height: '300px'}}>
       <BasicLineComponent
