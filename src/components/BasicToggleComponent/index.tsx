@@ -13,8 +13,9 @@ export default (props: Props) => {
   const [checked, setChecked] = useState(defaultValue)
 
   const handleChange = () => {
-    setChecked(!checked);
-    onChange && onChange(!checked);
+    const newValue = !checked;
+    setChecked(newValue);
+    onChange?.(newValue);
   }
 
   return (
