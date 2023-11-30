@@ -27,9 +27,10 @@ export const meta = {
       },
     },
     {
-      name: "yAxis",
+      name: "metrics",
       type: "measure",
-      label: "Y-axis",
+      array: true,
+      label: "Metrics",
       config: {
         dataset: "ds",
       },
@@ -37,7 +38,7 @@ export const meta = {
     {
       name: 'showLegend',
       type: 'boolean',
-      label: 'Toggle the legend',
+      label: 'Turn on the legend',
     },
   ],
   events: []
@@ -50,7 +51,7 @@ export default defineComponent(Component, meta, {
       results: loadData({
         from: inputs.ds,
         dimensions: [inputs.xAxis],
-        measures: [inputs.yAxis],
+        measures: inputs.metrics,
       })
     };
   }

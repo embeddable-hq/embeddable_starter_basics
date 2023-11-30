@@ -1,5 +1,4 @@
 import { defineComponent } from '@embeddable.com/react';
-import { loadData } from '@embeddable.com/core';
 
 import Component from './index';
 
