@@ -29,7 +29,16 @@ export const meta = {
           type: 'boolean'
         }
       ]
-    }]
+    }],
+  variables: [
+    {
+      name: 'toggle value',
+      type: 'boolean',
+      defaultValue: true,
+      inputs: ['defaultValue'],
+      events: [{ name: 'onChange', property: 'value'}]
+    }
+  ]
 };
 
 export default defineComponent(Component, meta, {
