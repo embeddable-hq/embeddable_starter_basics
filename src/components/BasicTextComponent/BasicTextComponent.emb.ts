@@ -18,8 +18,7 @@ export const meta = {
       label: 'Body',
       description: 'The text content'
     },
-  ],
-  events: []
+  ]
 };
 
 export default defineComponent(Component, meta, {

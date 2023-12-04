@@ -3,11 +3,11 @@ cubes:
     sql_table: public.orders
 
     joins:
-      - name: products
+      - name: products # the name of the data model to join to (not the table)
         sql: "{CUBE}.product_id = {products}.id"
         relationship: many_to_one
 
-      - name: customers
+      - name: customers # the name of the data model to join to (not the table)
         sql: "{CUBE}.customer_id = {customers}.id"
         relationship: many_to_one
 
@@ -22,7 +22,7 @@ cubes:
         type: time
         description: "The time when the order was created"
         meta:
-          format: "%Y-%m-%d"
+          format: "%Y-%m-%d" # will be passed as a prop to your components
 
     measures:
       - name: count
@@ -30,7 +30,7 @@ cubes:
         title: "# of orders"
         description: "Count of orders"
         meta:
-          some_meta: "value"
+          some_meta: "value" # will be passed as a prop to your components
 
     pre_aggregations:
       # Pre-aggregation definitions go here.

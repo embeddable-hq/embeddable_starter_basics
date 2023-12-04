@@ -1,10 +1,12 @@
 cubes:
   - name: customers
     title: My customers
-    sql_table: public.customers
+    sql_table: public.customers 
+
+    # sql: select * from public.customers where ... # alternative to sql_table
 
     joins:
-      - name: orders
+      - name: orders # the name of the data model to join to (not the table)
         sql: "{CUBE}.id = {orders}.customer_id"
         relationship: one_to_many
 
@@ -15,13 +17,14 @@ cubes:
         primary_key: true
 
       - name: email
+        title: "Email address"
         sql: email
         type: string
 
       - name: country
+        title: "Country of origin"
         sql: country
         type: string
-        title: Country of origin
 
       - name: signed_up_at
         sql: signed_up_at

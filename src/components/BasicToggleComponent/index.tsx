@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 type Change = (boolean) => void;
 
@@ -11,6 +11,7 @@ type Props = {
 export default (props: Props) => {
   const { defaultValue, label, onChange } = props;
   const [checked, setChecked] = useState(defaultValue)
+  useEffect(() => setChecked(defaultValue), [defaultValue])
 
   const handleChange = () => {
     const newValue = !checked;

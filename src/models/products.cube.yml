@@ -3,7 +3,7 @@ cubes:
     sql_table: public.products
 
     joins:
-      - name: orders
+      - name: orders # the name of the data model to join to (not the table)
         sql: "{CUBE}.id = {orders}.product_id"
         relationship: one_to_many
 
