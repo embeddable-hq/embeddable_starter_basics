@@ -4,42 +4,29 @@ import { loadData } from '@embeddable.com/core';
 import Component from './index';
 
 export const meta = {
-  name: 'BasicLineComponent',
-  label: 'Basic Line',
-  // classNames: ['add-border'],
+  name: 'BasicPieComponent',
+  label: 'Basic Pie',
   inputs: [
-    {
-      name: 'title',
-      type: 'string',
-      label: 'Title',
-      description: 'The title for the chart'
-    },
     {
       name: "ds",
       type: "dataset",
       label: "Dataset to display",
     },
     {
-      name: "xAxis",
+      name: "slice",
       type: "dimension",
-      label: "X-axis",
+      label: "Slice",
       config: {
         dataset: "ds",
       },
     },
     {
-      name: "metrics",
+      name: "metric",
       type: "measure",
-      array: true,
-      label: "Metrics",
+      label: "Metric",
       config: {
         dataset: "ds",
       },
-    },
-    {
-      name: 'showLegend',
-      type: 'boolean',
-      label: 'Turn on the legend',
     },
   ],
 };
@@ -50,8 +37,8 @@ export default defineComponent(Component, meta, {
       ...inputs,
       results: loadData({
         from: inputs.ds,
-        dimensions: [inputs.xAxis],
-        measures: inputs.metrics,
+        dimensions: [inputs.slice],
+        measures: [inputs.metric],
       })
     };
   }

@@ -21,9 +21,6 @@ export default (props: Props) => {
   if(error) {
     return <Error msg={error}/>;
   }
-  if(!data) {
-    return '!!!'; // BUG: isLoading returns false before data is ready
-  }
 
   //build header row
   const headers = columns.map((col, i) => <th key={i}>{col.title}</th>)
@@ -38,7 +35,7 @@ export default (props: Props) => {
   })
 
   return (
-      <table className='test1' style={{ width: '100%', border: 'solid 1px black'}}>
+      <table className='table-component' style={{ width: '100%', border: 'solid 1px black'}}>
         <thead><tr>{headers}</tr></thead>
         <tbody>{trs}</tbody>
       </table>

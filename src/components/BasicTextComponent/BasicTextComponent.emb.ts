@@ -5,6 +5,7 @@ import Component from './index';
 export const meta = {
   name: 'BasicTextComponent',
   label: 'Basic Text',
+  // classNames: ['overflow-scroll'],
   inputs: [
     {
       name: 'title',

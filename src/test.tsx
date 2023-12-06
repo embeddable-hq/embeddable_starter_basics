@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 
 import BasicTextComponent from './components/BasicTextComponent/index';
 import BasicLineComponent from './components/BasicLineComponent/index';
+import BasicPieComponent from './components/BasicPieComponent/index';
 import BasicToggleComponent from './components/BasicToggleComponent/index';
 import BasicTableComponent from './components/BasicTableComponent/index';
 
@@ -35,6 +36,23 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
             { name: 'Bob', age: 36, gender: 'male' },
             { name: 'Sam', age: 24, gender: 'female' },
             { name: 'Charlie', age: 73, gender: 'male' },
+          ]
+        }}
+      />
+    </div>
+    {/**/}
+    <div style={{width: '100%', height: '300px'}}>
+      <BasicPieComponent
+        ds={true}
+        slice={{ name: 'country'}}
+        metric={{ name: 'count'}}
+        results={{
+          isLoading: false,
+          error: null,
+          data: [
+            { country: 'US', count: 23 },
+            { country: 'UK', count: 10 },
+            { country: 'Germany', count: 5 }
           ]
         }}
       />
