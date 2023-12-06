@@ -1,0 +1,13 @@
+
+
+:host(.embeddable-canvas) {
+	background-color: black;
+}
+
+:host(.add-border) {
+	border: solid 1px black;
+}
+
+:host(.overflow-scroll) {
+	overflow: scroll;
+}

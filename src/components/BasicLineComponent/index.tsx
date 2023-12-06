@@ -12,6 +12,8 @@ import {
 import { Line } from 'react-chartjs-2';
 import { Dimension, Measure, Dataset } from "@embeddable.com/core";
 import { DataResponse } from "@embeddable.com/react";
+import Loading from '../util/Loading'
+import Error from '../util/Error'
 
 ChartJS.register(
   CategoryScale,
@@ -60,31 +62,29 @@ const chartData = (data, xAxis, metrics) => {
   };
 }
 
-const msg = message => <div>{message}</div>
-
 type Props = {
   title: string;
   showLegend: boolean;
   ds: Dataset;
-  xAxis: Dimension;
-  metrics: Measure;
-  results: DataResponse;
+  xAxis: Dimension; // { name, title }
+  metrics: Measure; // [{ name, title }]
+  results: DataResponse; // { isLoading, error, data: [{ <name>: <value>, ... }] }
 };
 
 export default (props: Props) => {
-  console.log(props);//TODO: cleanup
-  
+  console.log(props); //TODO: clean up
+
   const { results, xAxis, metrics, title, showLegend } = props;
   const { isLoading, data, error } = results;
 
   if(isLoading) {
-    return msg('Loading...');
+    return <Loading />
   }
   if(error) {
-    return msg('Unexpected error: '+error);
+    return <Error msg={error}/>;
   }
   if(!data) {
-    return msg('!!!'); // fixes BUG: isLoading returns false before data is ready
+    return '!!!'; // BUG: isLoading returns false before data is ready
   }
 
   return <Line options={chartOptions(title, showLegend)} 

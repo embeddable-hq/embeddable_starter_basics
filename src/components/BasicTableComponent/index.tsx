@@ -1,5 +1,8 @@
 import React from 'react';
 import { DimensionOrMeasure } from "@embeddable.com/core";
+import Loading from '../util/Loading'
+import Error from '../util/Error'
+import '../index.css'
 
 const msg = message => <div>{message}</div>
 
@@ -13,15 +16,19 @@ export default (props: Props) => {
   const { isLoading, data, error } = results;
 
   if(isLoading) {
-    return msg('Loading...');
+    return <Loading />
   }
   if(error) {
-    return msg('Unexpected error: '+error);
+    return <Error msg={error}/>;
   }
   if(!data) {
-    return msg('!!!'); // fixes BUG: isLoading returns false before data is ready
+    return '!!!'; // BUG: isLoading returns false before data is ready
   }
 
+  //build header row
+  const headers = columns.map((col, i) => <th key={i}>{col.title}</th>)
+
+  //build data rows
   const trs = data.map((row, i) => {
     const tds = columns.map((col, j) => {
       const value = row[col.name];
@@ -30,10 +37,8 @@ export default (props: Props) => {
     return <tr key={i}>{tds}</tr>
   })
 
-  const headers = columns.map((col, i) => <th key={i}>{col.title}</th>)
-
   return (
-      <table style={{ width: '100%', border: 'solid 1px black'}}>
+      <table className='test1' style={{ width: '100%', border: 'solid 1px black'}}>
         <thead><tr>{headers}</tr></thead>
         <tbody>{trs}</tbody>
       </table>
