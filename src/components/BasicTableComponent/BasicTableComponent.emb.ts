@@ -6,7 +6,7 @@ import Component from './index';
 export const meta = {
   name: 'BasicTableComponent',
   label: 'Basic Table',
-  // classNames: ['overflow-scroll'],
+  // classNames: ['overflow-scroll', 'add-border'],
   inputs: [
     {
       name: "ds",
