@@ -20,13 +20,10 @@ export default (props: Props) => {
   }
 
   return (
-      <label className='basic-toggle-component'>
-        <input 
-          type='checkbox'
-          checked={checked}
-          onChange={handleChange}
-          />
-          {label}
-      </label>
+      <div className='basic-toggle-container'>
+        <button class={checked ? 'on' : 'off'} onClick={handleChange}>
+          <span class="pin" />
+        </button>
+      </div>
     )
 }
