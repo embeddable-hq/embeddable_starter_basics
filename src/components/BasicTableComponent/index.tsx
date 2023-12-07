@@ -35,7 +35,7 @@ export default (props: Props) => {
   })
 
   return (
-      <table className='table-component' style={{ width: '100%', border: 'solid 1px black'}}>
+      <table className='basic-table-component'>
         <thead><tr>{headers}</tr></thead>
         <tbody>{trs}</tbody>
       </table>

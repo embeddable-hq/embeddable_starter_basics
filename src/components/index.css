@@ -1,6 +1,6 @@
 
 
-:host(.embeddable-canvas) {
+/*:host(.embeddable-canvas) {
 	background-color: black;
 }
 
@@ -10,4 +10,24 @@
 
 :host(.overflow-scroll) {
 	overflow: scroll;
+}*/
+
+h1 {
+	margin: 0;
+}
+
+.basic-table-component {
+	width: 100%;
+	border: solid 1px blue;
+}
+
+.embeddable-component {
+	box-shadow: 0px 1px 4px rgba(28,28,33,0.2);
+	border-radius: 16px;
+	padding: 16px;
+}
+
+.local-dev .embeddable-component {
+	width: 500px;
+	margin: 20px;
 }

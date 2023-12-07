@@ -20,7 +20,7 @@ export default (props: Props) => {
   }
 
   return (
-      <label>
+      <label className='basic-toggle-component'>
         <input 
           type='checkbox'
           checked={checked}
