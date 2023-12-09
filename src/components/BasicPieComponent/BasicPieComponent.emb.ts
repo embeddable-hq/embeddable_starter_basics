@@ -6,6 +6,7 @@ import Component from './index';
 export const meta = {
   name: 'BasicPieComponent',
   label: 'Basic Pie',
+  classNames: ['add-border'],
   inputs: [
     {
       name: "ds",

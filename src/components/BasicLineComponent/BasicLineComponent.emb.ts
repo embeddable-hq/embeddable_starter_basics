@@ -6,7 +6,7 @@ import Component from './index';
 export const meta = {
   name: 'BasicLineComponent',
   label: 'Basic Line',
-  // classNames: ['add-border'],
+  classNames: ['add-border'],
   inputs: [
     {
       name: 'title',
