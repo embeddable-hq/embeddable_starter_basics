@@ -21,8 +21,8 @@ export default (props: Props) => {
 
   return (
       <div className='basic-toggle-container'>
-        <button class={checked ? 'on' : 'off'} onClick={handleChange}>
-          <span class="pin" />
+        <button className={checked ? 'on' : 'off'} onClick={handleChange}>
+          <span className="pin" />
         </button>
       </div>
     )

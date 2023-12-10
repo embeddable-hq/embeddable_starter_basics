@@ -2,15 +2,6 @@ cubes:
   - name: orders
     sql_table: public.orders
 
-    joins:
-      - name: products # the name of the data model to join to (not the table)
-        sql: "{CUBE}.product_id = {products}.id"
-        relationship: many_to_one
-
-      - name: customers # the name of the data model to join to (not the table)
-        sql: "{CUBE}.customer_id = {customers}.id"
-        relationship: many_to_one
-
     dimensions:
       - name: id
         sql: id
@@ -31,6 +22,15 @@ cubes:
         description: "Count of orders"
         meta:
           some_meta: "value" # will be passed as a prop to your components
+
+    joins:
+      - name: products # the name of the data model to join to (not the table)
+        sql: "{CUBE}.product_id = {products}.id"
+        relationship: many_to_one
+
+      - name: customers # the name of the data model to join to (not the table)
+        sql: "{CUBE}.customer_id = {customers}.id"
+        relationship: many_to_one
 
     pre_aggregations:
       # Pre-aggregation definitions go here.
