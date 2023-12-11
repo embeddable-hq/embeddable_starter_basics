@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import BasicTextComponent from './components/BasicTextComponent';
+import BasicTextInputComponent from './components/BasicTextInputComponent';
 import BasicLineComponent from './components/BasicLineComponent';
 import BasicPieComponent from './components/BasicPieComponent';
 import BasicToggleComponent from './components/BasicToggleComponent';
@@ -11,6 +12,13 @@ import BasicTableComponent from './components/BasicTableComponent';
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <div className='local-dev'>
+      {/**/}
+        <div className='embeddable-component'>
+          <BasicTextInputComponent 
+            label='Search'
+            onChange={console.log}
+          />
+        </div>
       {/**/}
       <div className='embeddable-component'>
         <BasicTextComponent 

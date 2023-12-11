@@ -16,6 +16,13 @@ h1 {
 	margin: 0;
 }
 
+.basic-text-input-component input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
 table.basic-table-component {
 	width: 100%;
 	border: solid 1px #ccc;
