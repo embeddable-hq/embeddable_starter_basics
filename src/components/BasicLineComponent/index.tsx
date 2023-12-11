@@ -72,7 +72,7 @@ type Props = {
 };
 
 export default (props: Props) => {
-  console.log(props); //TODO: clean up
+  console.log('BasicLineComponent.props', props); 
   const { results, xAxis, metrics, title, showLegend } = props;
   const { isLoading, data, error } = results;
 

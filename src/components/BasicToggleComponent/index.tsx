@@ -9,6 +9,7 @@ type Props = {
 };
 
 export default (props: Props) => {
+  console.log('BasicToggleComponent.props', props); 
   const { defaultValue, label, onChange } = props;
   const [checked, setChecked] = useState(defaultValue)
   useEffect(() => setChecked(defaultValue), [defaultValue])

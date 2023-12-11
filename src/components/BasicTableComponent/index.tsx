@@ -10,6 +10,7 @@ type Props = {
 };
 
 export default (props: Props) => {
+  console.log('BasicTableComponet.props', props); 
   const { results, columns } = props;
   const { isLoading, data, error } = results;
 
