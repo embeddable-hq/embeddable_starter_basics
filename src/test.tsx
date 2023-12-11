@@ -25,7 +25,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
               { label: 'Meat', value: 'meat' },
             ]
           }}
-          labels={{ name: 'label', title: 'Labels'}}
           values={{ name: 'value', title: 'Values'}}
           defaultValue='vegetable'
           onChange={console.log}

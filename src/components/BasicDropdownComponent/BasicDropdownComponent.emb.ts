@@ -19,14 +19,6 @@ export const meta = {
       label: "Dataset to display",
     },
     {
-      name: "labels",
-      type: "dimension",
-      label: "Labels",
-      config: {
-        dataset: "ds",
-      },
-    },
-    {
       name: "values",
       type: "dimension",
       label: "Values",
@@ -53,15 +45,15 @@ export const meta = {
         }
       ]
     }],
-  // variables: [
-  //   {
-  //     name: 'chosen value',
-  //     type: 'string',
-  //     // defaultValue: Value.noFilter(),
-  //     inputs: ['defaultValue'],
-  //     events: [{ name: 'onChange', property: 'value'}]
-  //   }
-  // ]
+  variables: [
+    {
+      name: 'chosen value',
+      type: 'string',
+      defaultValue: Value.noFilter(),
+      inputs: ['defaultValue'],
+      events: [{ name: 'onChange', property: 'value'}]
+    }
+  ]
 };
 
 export default defineComponent(Component, meta, {
@@ -70,11 +62,11 @@ export default defineComponent(Component, meta, {
       ...inputs,
       results: loadData({
         from: inputs.ds,
-        dimensions: [inputs.labels, inputs.values],
+        dimensions: [inputs.values],
       })
     };
   },
   events: {
-    onChange: (value) => ({ value: value })// value == 'NO_VALUE' ? Value.noFilter() : value })
+    onChange: (value) => ({ value: value || Value.noFilter() })
   }
 });

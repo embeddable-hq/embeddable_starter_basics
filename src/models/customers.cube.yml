@@ -16,10 +16,10 @@ cubes:
         sql: email
         type: string
 
-      - name: full_name
-        title: "Full name"
-        sql: CONCAT(first_name, ' ', last_name)
-        type: string
+      # - name: full_name
+      #   title: "Full name"
+      #   sql: CONCAT(first_name, ' ', last_name)
+      #   type: string
 
       - name: country
         title: "Country of origin"

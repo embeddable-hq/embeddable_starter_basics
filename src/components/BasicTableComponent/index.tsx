@@ -4,8 +4,6 @@ import Loading from '../util/Loading'
 import Error from '../util/Error'
 import '../index.css'
 
-const msg = message => <div>{message}</div>
-
 type Props = {
   columns: DimensionOrMeasure[];
   results: DataResponse;

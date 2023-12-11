@@ -8,7 +8,6 @@ type Props = {
   defaultValue: string;
   title: string;
   onChange: Change;
-  labels: Dimension; // { name, title }
   values: Dimension; // { name, title }
   results: DataResponse; // { isLoading, error, data: [{ <name>: <value>, ... }] }
 };
@@ -25,13 +24,15 @@ export default (props: Props) => {
     return <Error msg={error}/>;
   }
 
+  const NO_VALUE = 'NO_VALUE';
+
   const [value, setValue] = React.useState(defaultValue);
   useEffect(() => handleChange(defaultValue), [defaultValue])
 
   const handleChange = (newValue) => {
     console.log('BasicDropdown.newValue:', newValue)
     setValue(newValue);
-    onChange(newValue)
+    onChange(newValue == NO_VALUE ? null : newValue)
   };
 
   return (
@@ -39,9 +40,9 @@ export default (props: Props) => {
       <label>
         {title}
         <select value={value} onChange={e => { handleChange(e.target.value)}}>
-            <option value={'NO_VALUE'}>--no value--</option>
+            <option value={NO_VALUE}>--no value--</option>
           {data.map((option, i) => (
-            <option key={i} value={option[values.name]}>{option[labels.name]}</option>
+            <option key={i} value={option[values.name]}>{option[values.name]}</option>
           ))}
         </select>
       </label>
