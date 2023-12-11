@@ -29,6 +29,11 @@ export const meta = {
         dataset: "ds",
       },
     },
+    {
+      name: 'showLegend',
+      type: 'boolean',
+      label: 'Turn on the legend',
+    },
   ],
 };
 

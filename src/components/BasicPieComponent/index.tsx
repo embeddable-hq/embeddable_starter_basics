@@ -35,9 +35,14 @@ const COLORS = [
   '#C3B0EA',
   ];
 
-const chartOptions = () => ({
+const chartOptions = (showLegend) => ({
   responsive: true,
   maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      display: showLegend
+    }
+  },
 });
 
 const chartData = (labels, counts) => {
@@ -58,11 +63,12 @@ type Props = {
   slice: Dimension; // { name, title }
   metric: Measure; // [{ name, title }]
   results: DataResponse; // { isLoading, error, data: [{ <name>: <value>, ... }] }
+  showLegend: boolean;
 };
 
 export default (props: Props) => {
   console.log('BasicPieComponent.props', props); 
-  const { slice, metric, results } = props;
+  const { slice, metric, showLegend, results } = props;
   const { isLoading, data, error } = results;
 
   if(isLoading) {
@@ -78,6 +84,6 @@ export default (props: Props) => {
   // Chart.js pie expects counts like so: [23, 10, 5]
   const counts = data.map(d => d[metric.name]);
 
-  return <Pie options={chartOptions()} 
+  return <Pie options={chartOptions(showLegend)} 
               data={chartData(labels, counts)} />
 };

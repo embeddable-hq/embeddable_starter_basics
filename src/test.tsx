@@ -6,30 +6,11 @@ import BasicLineComponent from './components/BasicLineComponent';
 import BasicPieComponent from './components/BasicPieComponent';
 import BasicToggleComponent from './components/BasicToggleComponent';
 import BasicTableComponent from './components/BasicTableComponent';
-import BasicDropdownComponent from './components/BasicDropdownComponent';
 
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <div className='local-dev'>
-      {/**/}
-      <div className='embeddable-component'>
-        <BasicDropdownComponent 
-          label='fruits'
-          results={{
-            isLoading: false,
-            error: null,
-            data: [
-              { label: 'Fruit', value: 'fruit' },
-              { label: 'Vegetable', value: 'vegetable' },
-              { label: 'Meat', value: 'meat' },
-            ]
-          }}
-          values={{ name: 'value', title: 'Values'}}
-          defaultValue='vegetable'
-          onChange={console.log}
-        />
-      </div>
       {/**/}
       <div className='embeddable-component'>
         <BasicTextComponent 
@@ -70,6 +51,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           ds={true}
           slice={{ name: 'country'}}
           metric={{ name: 'count'}}
+          showLegend={true}
           results={{
             isLoading: false,
             error: null,

@@ -25,6 +25,7 @@ export default (props: Props) => {
         <button className={checked ? 'on' : 'off'} onClick={handleChange}>
           <span className="pin" />
         </button>
+        <label>{label}</label>
       </div>
     )
 }

@@ -62,6 +62,13 @@ table.basic-table-component, th, td {
   transition: left ease .5s;
 }
 
+.basic-toggle-container label {
+  line-height: 20px;
+  vertical-align: sub;
+  padding: 5px;
+  white-space: nowrap;
+}
+
 .basic-toggle-container button.on {
   background-color: green;
 }
