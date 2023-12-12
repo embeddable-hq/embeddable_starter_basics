@@ -4,8 +4,8 @@ import { Value } from '@embeddable.com/core';
 import Component from './index';
 
 export const meta = {
-  name: 'BasicTextInputComponent',
-  label: 'Basic Text Input',
+  name: 'BasicInputComponent',
+  label: 'Basic Input',
   inputs: [
     {
       name: 'label',
@@ -25,15 +25,6 @@ export const meta = {
         }
       ]
     }],
-  variables: [
-    {
-      name: 'text value',
-      type: 'string',
-      defaultValue: Value.noFilter(),
-      inputs: [],
-      events: [{ name: 'onChange', property: 'value'}]
-    }
-  ]
 };
 
 export default defineComponent(Component, meta, {

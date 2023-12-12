@@ -20,12 +20,18 @@ export const meta = {
       label: "Dataset to display",
     },
     {
-      name: "xAxis",
-      type: "dimension",
-      label: "X-axis",
+      name: 'xAxis',
+      type: 'dimension',
+      label: 'X-Axis',
       config: {
-        dataset: "ds",
-      },
+        dataset: 'ds',
+        supportedTypes: ['time']
+      }
+    },
+    {
+      name: 'granularity',
+      type: 'granularity',
+      label: 'Granularity'
     },
     {
       name: "metrics",
@@ -44,13 +50,22 @@ export const meta = {
   ],
 };
 
+const timeDimension = (dimension, granularity) => {
+  return ({
+    dimension: dimension.name,
+    granularity: granularity
+  });
+}
+
 export default defineComponent(Component, meta, {
   props: (inputs) => {
     return {
       ...inputs,
       results: loadData({
         from: inputs.ds,
-        dimensions: [inputs.xAxis],
+        timeDimensions: [
+          timeDimension(inputs.xAxis, inputs.granularity)
+        ],
         measures: inputs.metrics,
       })
     };

@@ -47,8 +47,18 @@ const chartOptions = (title, showLegend) => ({
   },
 });
 
+const format = text => {
+  if(!text) {
+    return text;
+  }
+  if (text.endsWith('T00:00:00.000')) {
+    return new Intl.DateTimeFormat().format(new Date(text));
+  }
+  return new Date(text).toLocaleString();
+}
+
 const chartData = (data, xAxis, metrics) => {
-  const labels = data.map(d => d[xAxis.name]);
+  const labels = data.map(d => format(d[xAxis.name]));
   return {
     labels,
     datasets: metrics.map((yAxis, i) =>

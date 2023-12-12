@@ -6,7 +6,7 @@ Hello and welcome to your custom repository built just for you by the Embeddable
 `npm i` # requires node 18 or later
 
 ### Local Development
-`npm run dev`
+`npm run dev` # we will be improving this *a lot* in the coming weeks
 
 ### Build & Deploy
 `npm run embeddable:login`

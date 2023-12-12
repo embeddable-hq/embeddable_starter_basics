@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import BasicTextComponent from './components/BasicTextComponent';
-import BasicTextInputComponent from './components/BasicTextInputComponent';
+import BasicInputComponent from './components/BasicInputComponent';
 import BasicLineComponent from './components/BasicLineComponent';
 import BasicPieComponent from './components/BasicPieComponent';
 import BasicToggleComponent from './components/BasicToggleComponent';
@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <div className='local-dev'>
       {/**/}
         <div className='embeddable-component'>
-          <BasicTextInputComponent 
+          <BasicInputComponent 
             label='Search'
             onChange={console.log}
           />
