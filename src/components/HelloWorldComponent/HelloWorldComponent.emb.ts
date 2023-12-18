@@ -3,8 +3,8 @@ import { defineComponent } from '@embeddable.com/react';
 import Component from './index';
 
 export const meta = {
-  name: 'BasicTextComponent',
-  label: 'Basic Text',
+  name: 'HelloWorldComponent',
+  label: 'Hello World',
   inputs: [
     {
       name: 'title',

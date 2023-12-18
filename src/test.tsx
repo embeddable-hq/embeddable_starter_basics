@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import BasicTextComponent from './components/BasicTextComponent';
+import HelloWorldComponent from './components/HelloWorldComponent';
 import BasicInputComponent from './components/BasicInputComponent';
 import BasicLineComponent from './components/BasicLineComponent';
 import BasicPieComponent from './components/BasicPieComponent';
 import BasicToggleComponent from './components/BasicToggleComponent';
 import BasicTableComponent from './components/BasicTableComponent';
+
 
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -21,7 +22,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         </div>
       {/**/}
       <div className='embeddable-component'>
-        <BasicTextComponent 
+        <HelloWorldComponent 
           title='Build Remarkable Analytics Experiences'
           body='The toolkit for building fast, interactive, fully-custom analytics experiences into your app'
         />
