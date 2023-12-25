@@ -1,11 +1,13 @@
-import { defineComponent } from '@embeddable.com/react';
+import { EmbeddedComponentMeta, defineComponent } from '@embeddable.com/react';
 import { Value } from '@embeddable.com/core';
 
 import Component from './index';
 
-export const meta = {
+export const meta: EmbeddedComponentMeta = {
   name: 'BasicInputComponent',
   label: 'Basic Input',
+  defaultWidth: 320,
+  defaultHeight: 80,
   inputs: [
     {
       name: 'label',
