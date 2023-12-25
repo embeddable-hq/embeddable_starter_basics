@@ -7,7 +7,7 @@ import BasicLineComponent from './components/BasicLineComponent';
 import BasicPieComponent from './components/BasicPieComponent';
 import BasicToggleComponent from './components/BasicToggleComponent';
 import BasicTableComponent from './components/BasicTableComponent';
-
+import BasicMultiSelectComponent from './components/BasicMultiSelectComponent';
 
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -15,7 +15,15 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <div className='local-dev'>
       {/**/}
         <div className='embeddable-component'>
+          <BasicMultiSelectComponent
+            options={['One', 'Two', 'Three']}
+            onChange={selected => console.log(selected)}
+          />
+        </div>
+      {/**/}
+        <div className='embeddable-component'>
           <BasicInputComponent 
+            defaultValue=''
             label='Search'
             onChange={console.log}
           />
@@ -45,7 +53,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
             ]}
           results={{
             isLoading: false,
-            error: null,
+            error: undefined,
             data: [
               { name: 'Bob', age: 36, gender: 'male' },
               { name: 'Sam', age: 24, gender: 'female' },

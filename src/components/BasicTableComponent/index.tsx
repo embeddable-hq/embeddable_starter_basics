@@ -3,6 +3,7 @@ import { DimensionOrMeasure } from "@embeddable.com/core";
 import Loading from '../util/Loading'
 import Error from '../util/Error'
 import '../index.css'
+import { DataResponse } from '@embeddable.com/react';
 
 type Props = {
   columns: DimensionOrMeasure[];
