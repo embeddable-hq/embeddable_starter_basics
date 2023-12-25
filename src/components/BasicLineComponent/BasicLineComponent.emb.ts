@@ -1,5 +1,5 @@
 import { EmbeddedComponentMeta, defineComponent } from '@embeddable.com/react';
-import { loadData } from '@embeddable.com/core';
+import { Dataset, Dimension, Granularity, Measure, TimeDimension, loadData } from '@embeddable.com/core';
 
 import Component from './index';
 
@@ -57,7 +57,16 @@ const timeDimension = (dimension, granularity) => {
   });
 }
 
-export default defineComponent(Component, meta, {
+type Inputs = {
+  title: string;
+  ds: Dataset;
+  xAxis: Dimension;
+  granularity: Granularity;
+  metrics: Measure[];
+  showLegend: boolean;
+}
+
+export default defineComponent<Inputs>(Component, meta, {
   props: (inputs) => {
     return {
       ...inputs,

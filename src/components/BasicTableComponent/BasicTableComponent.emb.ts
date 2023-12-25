@@ -1,5 +1,5 @@
 import { EmbeddedComponentMeta, defineComponent } from '@embeddable.com/react';
-import { loadData, isMeasure, isDimension } from '@embeddable.com/core';
+import { loadData, isMeasure, isDimension, Dataset, DimensionOrMeasure, Dimension, Measure } from '@embeddable.com/core';
 
 import Component from './index';
 
@@ -25,14 +25,19 @@ export const meta : EmbeddedComponentMeta = {
   ],
 };
 
-export default defineComponent(Component, meta, {
+type Inputs = {
+  ds: Dataset;
+  columns: DimensionOrMeasure[];
+}
+
+export default defineComponent<Inputs>(Component, meta, {
   props: (inputs) => {
     return {
       ...inputs,
       results: loadData({
         from: inputs.ds,
-        dimensions: inputs.columns.filter((c) => isDimension(c)),
-        measures: inputs.columns.filter((c) => isMeasure(c)),
+        dimensions: inputs.columns.filter((c) => isDimension(c)).map(c => c as Dimension),
+        measures: inputs.columns.filter((c) => isMeasure(c)).map(c => c as Measure),
       })
     };
   }

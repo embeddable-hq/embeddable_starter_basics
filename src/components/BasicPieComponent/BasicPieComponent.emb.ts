@@ -1,5 +1,5 @@
 import { EmbeddedComponentMeta, defineComponent } from '@embeddable.com/react';
-import { loadData } from '@embeddable.com/core';
+import { Dataset, Dimension, Measure, loadData } from '@embeddable.com/core';
 
 import Component from './index';
 
@@ -37,7 +37,14 @@ export const meta : EmbeddedComponentMeta = {
   ],
 };
 
-export default defineComponent(Component, meta, {
+type Inputs = {
+  ds: Dataset;
+  slice: Dimension;
+  metric: Measure;
+  showLegend: boolean;
+}
+
+export default defineComponent<Inputs>(Component, meta, {
   props: (inputs) => {
     return {
       ...inputs,

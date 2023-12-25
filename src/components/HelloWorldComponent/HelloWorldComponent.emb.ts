@@ -21,7 +21,12 @@ export const meta : EmbeddedComponentMeta = {
   ]
 };
 
-export default defineComponent(Component, meta, {
+type Inputs = {
+  title: string;
+  body: string;
+}
+
+export default defineComponent<Inputs>(Component, meta, {
   props: (inputs) => {
     return {
       title: inputs.title,

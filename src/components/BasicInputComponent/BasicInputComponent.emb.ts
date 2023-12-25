@@ -29,7 +29,11 @@ export const meta: EmbeddedComponentMeta = {
     }],
 };
 
-export default defineComponent(Component, meta, {
+type Inputs = {
+  label: string;
+}
+
+export default defineComponent<Inputs>(Component, meta, {
   props: (inputs) => {
     return {
       ...inputs
