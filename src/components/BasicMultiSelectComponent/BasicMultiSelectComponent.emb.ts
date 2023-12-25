@@ -29,6 +29,15 @@ export const meta: EmbeddedComponentMeta = {
         }
       ]
     }],
+  variables: [
+        {
+            name: 'selected values',
+            type: 'string',
+            array: true,
+            defaultValue: Value.noFilter(),
+            events: [{ name: 'onChange', property: 'value'}]
+        }
+    ]
 };
 
 type Inputs = {
