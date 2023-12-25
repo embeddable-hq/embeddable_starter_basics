@@ -1,9 +1,9 @@
-import { defineComponent } from '@embeddable.com/react';
+import { EmbeddedComponentMeta, defineComponent } from '@embeddable.com/react';
 import { loadData, isMeasure, isDimension } from '@embeddable.com/core';
 
 import Component from './index';
 
-export const meta = {
+export const meta : EmbeddedComponentMeta = {
   name: 'BasicTableComponent',
   label: 'Basic Table',
   classNames: ['overflow-scroll', 'add-border'],

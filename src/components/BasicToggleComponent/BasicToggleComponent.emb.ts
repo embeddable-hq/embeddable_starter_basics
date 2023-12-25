@@ -1,8 +1,8 @@
-import { defineComponent } from '@embeddable.com/react';
+import { EmbeddedComponentMeta, defineComponent } from '@embeddable.com/react';
 
 import Component from './index';
 
-export const meta = {
+export const meta : EmbeddedComponentMeta = {
   name: 'BasicToggleComponent',
   label: 'Basic Toggle',
   inputs: [
