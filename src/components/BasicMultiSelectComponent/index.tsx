@@ -8,7 +8,7 @@ type Props = {
 };
 
 export default (props: Props) => {
-    const { options, onChange } = props;
+    const { options = [], onChange } = props;
     console.log('BasicMultiSelectComponent.props', props)
     const [selected, setSelected] = useState<string[]>([])
 
