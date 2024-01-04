@@ -1,7 +1,9 @@
 import { EmbeddedComponentMeta, defineComponent } from '@embeddable.com/react';
 import { Dataset, Dimension, Granularity, Measure, TimeDimension, loadData } from '@embeddable.com/core';
+import CurrencyType from '../../types/Currency.type.emb.js';
 
 import Component from './index';
+
 
 export const meta : EmbeddedComponentMeta = {
   name: 'BasicLineComponent',
@@ -47,6 +49,11 @@ export const meta : EmbeddedComponentMeta = {
       type: 'boolean',
       label: 'Turn on the legend',
     },
+    {
+      name: "currency",
+      type: CurrencyType,
+      label: "Currency",
+    }
   ],
 };
 
