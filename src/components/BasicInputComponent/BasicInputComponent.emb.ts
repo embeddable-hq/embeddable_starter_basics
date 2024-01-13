@@ -23,7 +23,7 @@ export const meta: EmbeddedComponentMeta = {
       properties: [
         {
           name: 'value',
-          type: 'string'
+          type: 'string',
         }
       ]
     }],

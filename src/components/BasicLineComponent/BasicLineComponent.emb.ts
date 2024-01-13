@@ -14,12 +14,14 @@ export const meta : EmbeddedComponentMeta = {
       name: 'title',
       type: 'string',
       label: 'Title',
-      description: 'The title for the chart'
+      description: 'The title for the chart',
+      category: 'Configure chart',
     },
     {
       name: "ds",
       type: "dataset",
       label: "Dataset to display",
+      category: 'Configure chart',
     },
     {
       name: 'xAxis',
@@ -28,12 +30,14 @@ export const meta : EmbeddedComponentMeta = {
       config: {
         dataset: 'ds',
         supportedTypes: ['time']
-      }
+      },
+      category: 'Configure chart',
     },
     {
       name: 'granularity',
       type: 'granularity',
-      label: 'Granularity'
+      label: 'Granularity',
+      category: 'Configure chart',
     },
     {
       name: "metrics",
@@ -43,16 +47,19 @@ export const meta : EmbeddedComponentMeta = {
       config: {
         dataset: "ds",
       },
+      category: 'Configure chart',
     },
     {
       name: 'showLegend',
       type: 'boolean',
       label: 'Turn on the legend',
+      category: 'Chart settings',
     },
     {
       name: "currency",
       type: CurrencyType,
       label: "Currency",
+      category: 'Chart settings',
     }
   ],
 };
@@ -60,7 +67,7 @@ export const meta : EmbeddedComponentMeta = {
 const timeDimension = (dimension, granularity) => {
   return ({
     dimension: dimension.name,
-    granularity: granularity
+    granularity: granularity,
   });
 }
 

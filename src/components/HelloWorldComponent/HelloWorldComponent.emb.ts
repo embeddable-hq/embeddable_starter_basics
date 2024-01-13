@@ -5,6 +5,8 @@ import Component from './index';
 export const meta : EmbeddedComponentMeta = {
   name: 'HelloWorldComponent',
   label: 'Hello World',
+  defaultHeight: 100,
+  defaultWidth: 400,
   inputs: [
     {
       name: 'title',

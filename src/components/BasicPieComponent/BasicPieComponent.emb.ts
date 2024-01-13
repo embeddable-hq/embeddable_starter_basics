@@ -12,6 +12,7 @@ export const meta : EmbeddedComponentMeta = {
       name: "ds",
       type: "dataset",
       label: "Dataset to display",
+      category: 'Configure chart',
     },
     {
       name: "slice",
@@ -20,6 +21,7 @@ export const meta : EmbeddedComponentMeta = {
       config: {
         dataset: "ds",
       },
+      category: 'Configure chart',
     },
     {
       name: "metric",
@@ -28,11 +30,13 @@ export const meta : EmbeddedComponentMeta = {
       config: {
         dataset: "ds",
       },
+      category: 'Configure chart',
     },
     {
       name: 'showLegend',
       type: 'boolean',
       label: 'Turn on the legend',
+      category: 'Chart settings',
     },
   ],
 };
