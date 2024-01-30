@@ -64,13 +64,6 @@ export const meta : EmbeddedComponentMeta = {
   ],
 };
 
-const timeDimension = (dimension, granularity) => {
-  return ({
-    dimension: dimension.name,
-    granularity: granularity,
-  });
-}
-
 type Inputs = {
   title: string;
   ds: Dataset;
@@ -87,7 +80,10 @@ export default defineComponent<Inputs>(Component, meta, {
       results: loadData({
         from: inputs.ds,
         timeDimensions: [
-          timeDimension(inputs.xAxis, inputs.granularity)
+          {
+            dimension: inputs.xAxis.name,
+            granularity: inputs.granularity,
+          }
         ],
         measures: inputs.metrics,
       })
