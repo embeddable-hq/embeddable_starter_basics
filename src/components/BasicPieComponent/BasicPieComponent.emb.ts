@@ -37,7 +37,7 @@ export const meta : EmbeddedComponentMeta = {
       type: 'boolean',
       label: 'Turn on the legend',
       category: 'Chart settings',
-      defaultValue: false
+      defaultValue: true
     },
   ],
 };
