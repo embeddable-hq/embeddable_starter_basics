@@ -22,22 +22,31 @@ export const meta : EmbeddedComponentMeta = {
         dataset: "ds",
       },
     },
+    {
+      name: "rowsPerPage",
+      type: "number",
+      label: "Rows per page",
+    },
   ],
 };
 
 type Inputs = {
   ds: Dataset;
   columns: DimensionOrMeasure[];
+  rowsPerPage: number;
 }
 
 export default defineComponent<Inputs>(Component, meta, {
-  props: (inputs) => {
+  props: (inputs, [state]) => {
+    const page = state?.page || 1;
     return {
       ...inputs,
       results: loadData({
         from: inputs.ds,
         dimensions: inputs.columns.filter((c) => isDimension(c)).map(c => c as Dimension),
         measures: inputs.columns.filter((c) => isMeasure(c)).map(c => c as Measure),
+        limit: inputs.rowsPerPage,
+        offset: (page-1) * inputs.rowsPerPage
       })
     };
   }
