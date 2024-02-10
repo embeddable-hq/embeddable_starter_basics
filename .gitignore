@@ -1,3 +1,5 @@
 .embeddable-build
 node_modules
 embeddable-entry-point.jsx
+.cubestore
+.env

@@ -73,6 +73,13 @@ type Inputs = {
   showLegend: boolean;
 }
 
+const timeDimension = (dimension, granularity) => {
+  return ({
+    dimension: dimension.name,
+    granularity: granularity,
+  });
+}
+
 export default defineComponent<Inputs>(Component, meta, {
   props: (inputs) => {
     return {
@@ -80,10 +87,7 @@ export default defineComponent<Inputs>(Component, meta, {
       results: loadData({
         from: inputs.ds,
         timeDimensions: [
-          {
-            dimension: inputs.xAxis.name,
-            granularity: inputs.granularity,
-          }
+          timeDimension(inputs.xAxis, inputs.granularity)
         ],
         measures: inputs.metrics,
       })
