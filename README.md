@@ -32,11 +32,21 @@ Create a `.env` file in the same folder as `cube-playground.yml` and follow the 
 
 open `localhost:4000`
 
+In the playground you can:
 
-### Debugging Preaggregations
+- query for measures and dimensions
+- see results
+- see generated SQL
+- set the Security Context to test row level security
+- test pre-aggregations
+
+Official documentation on using Cube's playground can be found [here](https://cube.dev/docs/product/workspace/playground#running-playground).
+
+
+### Debugging Pre-aggregations
 
 While cube playground is running, you can run `npm run cube:cubestore` to get access to a mysql interface on top of your locally stored preaggregations.
 
 E.g. list the stored preaggregations using `SELECT * FROM information_schema.tables;`
 
-Official documentation on this can be found [here](https://cube.dev/docs/product/caching/using-pre-aggregations#inspecting-pre-aggregations).
+Official documentation on querying local preaggregations can be found [here](https://cube.dev/docs/product/caching/using-pre-aggregations#inspecting-pre-aggregations).
