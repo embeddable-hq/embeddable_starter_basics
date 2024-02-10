@@ -49,4 +49,4 @@ While cube playground is running, you can run `npm run cube:cubestore` to get ac
 
 E.g. list the stored preaggregations using `SELECT * FROM information_schema.tables;`
 
-Official documentation on querying local preaggregations can be found [here](https://cube.dev/docs/product/caching/using-pre-aggregations#inspecting-pre-aggregations).
+Official documentation on inspecting local pre-aggregations can be found [here](https://cube.dev/docs/product/caching/using-pre-aggregations#inspecting-pre-aggregations).
