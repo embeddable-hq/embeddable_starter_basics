@@ -3,9 +3,9 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "engines" : { 
-    "npm" : ">=9.0.0",
-    "node" : ">=18.0.0"
+  "engines": {
+    "npm": ">=9.0.0",
+    "node": ">=18.0.0"
   },
   "scripts": {
     "embeddable:build": "embeddable build",
@@ -13,7 +13,8 @@
     "embeddable:login": "embeddable login",
     "embeddable:dev": "embeddable dev",
     "cube:playground": "docker-compose -f ./cube-playground.yml up",
-    "cube:cubestore": "mysql -h 127.0.0.1 -P 13306 --user=cubestore -pcubestore"
+    "cube:cubestore": "mysql -h 127.0.0.1 -P 13306 --user=cubestore -pcubestore",
+    "lint": "npx eslint . --ext .ts --ext .tsx"
   },
   "dependencies": {
     "chart.js": "^4.4.0",
@@ -29,6 +30,7 @@
     "@embeddable.com/sdk-react": "^2.2.25",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@vitejs/plugin-react": "^4.0.0",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.38.0",
@@ -48,23 +50,26 @@
       "eslint:recommended",
       "plugin:react/recommended",
       "plugin:react/jsx-runtime",
-      "plugin:react-hooks/recommended"
+      "plugin:react-hooks/recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended"
     ],
-    "parserOptions": {
-      "ecmaVersion": "latest",
-      "sourceType": "module"
-    },
+    "parser": "@typescript-eslint/parser",
     "settings": {
       "react": {
         "version": "18.2"
       }
     },
     "plugins": [
-      "react-refresh"
+      "react-refresh",
+      "@typescript-eslint"
     ],
     "rules": {
-      "react-refresh/only-export-components": "warn",
-      "react/prop-types": "off"
+      "react/display-name": "off",
+      "react/prop-types": "off",
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "react-refresh/only-export-components": "off"
     }
   },
   "postcss": {

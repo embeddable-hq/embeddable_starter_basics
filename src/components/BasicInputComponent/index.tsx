@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 type Change = (text: string) => void;
 
-let timeout: any = null;
+let timeout: NodeJS.Timeout | null = null;
 
 type Props = {
   label: string;
