@@ -6,7 +6,7 @@ cubes:
     # sql: >
     #   select * 
     #   from public.customers 
-    #   where user_id = '{COMPILE_CONTEXT.securityContext.userId}' 
+    #   where country = '{COMPILE_CONTEXT.securityContext.country}' 
 
     dimensions:
       - name: id

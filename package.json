@@ -12,7 +12,7 @@
     "embeddable:push": "embeddable push",
     "embeddable:login": "embeddable login",
     "embeddable:dev": "NODE_OPTIONS='--max-old-space-size=4096' embeddable dev",
-    "cube:playground": "docker-compose -f ./cube-playground.yml up",
+    "cube:playground": "docker-compose -f ./src/cube-playground.yml up",
     "cube:cubestore": "mysql -h 127.0.0.1 -P 13306 --user=cubestore -pcubestore",
     "lint": "npx eslint . --ext .ts --ext .tsx"
   },
@@ -24,10 +24,10 @@
     "vite-plugin-css-injected-by-js": "^3.1.1"
   },
   "devDependencies": {
-    "@embeddable.com/core": "^2.4.22",
-    "@embeddable.com/react": "^2.4.23",
-    "@embeddable.com/sdk-core": "^2.4.25",
-    "@embeddable.com/sdk-react": "^2.2.25",
+    "@embeddable.com/core": "^2.4.23",
+    "@embeddable.com/react": "^2.4.24",
+    "@embeddable.com/sdk-core": "^2.4.26",
+    "@embeddable.com/sdk-react": "^2.2.27",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
