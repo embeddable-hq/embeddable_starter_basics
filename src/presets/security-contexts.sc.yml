@@ -1,9 +1,7 @@
 - name: Example customer 1
   securityContext:
-    someId: YXR0cmlidXRlIjoiZ2VvaXBf9sZSJ9LHsi
-    someOtherId: 8367
+    country: United States
     
 - name: Example customer 2
   securityContext:
-    someId: cmlidXRlIjoiZ2VvaXBf9sZSJ9LHsiYXR0
-    someOtherId: 183
+    country: Germany
