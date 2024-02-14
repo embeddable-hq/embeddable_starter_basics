@@ -33,9 +33,15 @@ export const meta = {
 
 export default defineComponent(Component, meta, {
   props: (inputs) => {
+    const now = new Date();
     return {
       ...inputs,
       options: [
+        { 
+          name: '3 hours ago', 
+          from: new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours()-3),
+          to: new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours()-2),
+        },
         { name: 'Today', relativeTimeString: 'today' },
         { name: 'Last week', relativeTimeString: 'last week' },
         { name: 'Last month', relativeTimeString: 'last month' }
