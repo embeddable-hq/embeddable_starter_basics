@@ -11,7 +11,7 @@
     "embeddable:build": "embeddable build",
     "embeddable:push": "embeddable push",
     "embeddable:login": "embeddable login",
-    "embeddable:dev": "NODE_OPTIONS='--max-old-space-size=4096' embeddable dev",
+    "embeddable:dev": "cross-env NODE_OPTIONS='--max-old-space-size=4096' embeddable dev",
     "cube:playground": "docker-compose -f ./src/cube-playground.yml up",
     "cube:cubestore": "mysql -h 127.0.0.1 -P 13306 --user=cubestore -pcubestore",
     "lint": "npx eslint . --ext .ts --ext .tsx"
@@ -33,6 +33,7 @@
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@vitejs/plugin-react": "^4.0.0",
     "autoprefixer": "^10.4.14",
+    "cross-env": "^7.0.3",
     "eslint": "^8.38.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
