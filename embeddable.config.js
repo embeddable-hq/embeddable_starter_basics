@@ -3,8 +3,8 @@ import react from '@embeddable.com/sdk-react';
 
 export default defineConfig({
   plugins: [react],
-  errorFallbackComponent: './src/components/util/ErrorHandler.jsx',
-  
+  errorFallbackComponent: './src/components/util/ErrorHandler.tsx'
+
   // previewBaseUrl: 'https://app.dev.embeddable.com',
   // pushBaseUrl: 'https://api.dev.embeddable.com',
   // audienceUrl: 'https://api.dev.embeddable.com/',
