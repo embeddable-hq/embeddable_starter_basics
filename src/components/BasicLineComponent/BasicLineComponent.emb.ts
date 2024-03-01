@@ -1,6 +1,5 @@
 import { EmbeddedComponentMeta, defineComponent } from '@embeddable.com/react';
 import { Dataset, Dimension, Granularity, Measure, TimeDimension, loadData } from '@embeddable.com/core';
-import CurrencyType from '../../types/Currency.type.emb.js';
 
 import Component from './index';
 
@@ -55,12 +54,6 @@ export const meta : EmbeddedComponentMeta = {
       label: 'Turn on the legend',
       category: 'Chart settings',
     },
-    {
-      name: "currency",
-      type: CurrencyType,
-      label: "Currency",
-      category: 'Chart settings',
-    }
   ],
 };
 
