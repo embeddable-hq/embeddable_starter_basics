@@ -3,9 +3,10 @@ import { Dataset, Dimension, Measure, loadData } from '@embeddable.com/core';
 
 import Component from './index';
 
-export const meta : EmbeddedComponentMeta = {
+export const meta: EmbeddedComponentMeta = {
   name: 'KPIWithDrilldown',
   label: 'KPI with drilldown',
+  classNames: ['example'],
   inputs: [
     {
       name: 'title',
@@ -14,31 +15,31 @@ export const meta : EmbeddedComponentMeta = {
       description: 'The title for the chart'
     },
     {
-      name: "ds",
-      type: "dataset",
-      label: "Dataset to display",
-      category: 'Configure chart',
+      name: 'ds',
+      type: 'dataset',
+      label: 'Dataset to display',
+      category: 'Configure chart'
     },
     {
-      name: "metric",
-      type: "measure",
-      label: "Metric",
+      name: 'metric',
+      type: 'measure',
+      label: 'Metric',
       config: {
-        dataset: "ds",
+        dataset: 'ds'
       },
-      category: 'Configure chart',
+      category: 'Configure chart'
     },
     {
-      name: "columns",
-      type: "dimension",
+      name: 'columns',
+      type: 'dimension',
       array: true,
-      label: "Underlying columns",
+      label: 'Underlying columns',
       config: {
-        dataset: "ds",
+        dataset: 'ds'
       },
-      category: 'Configure chart',
+      category: 'Configure chart'
     }
-  ],
+  ]
 };
 
 type Inputs = {
@@ -46,7 +47,7 @@ type Inputs = {
   slice: Dimension;
   metric: Measure;
   showLegend: boolean;
-}
+};
 
 export default defineComponent<Inputs>(Component, meta, {
   props: (inputs) => {
@@ -54,12 +55,12 @@ export default defineComponent<Inputs>(Component, meta, {
       ...inputs,
       kpi: loadData({
         from: inputs.ds,
-        measures: [inputs.metric],
+        measures: [inputs.metric]
       }),
       underlying: loadData({
         from: inputs.ds,
         dimensions: inputs.columns,
-        measures: [inputs.metric],
+        measures: [inputs.metric]
       })
     };
   }
