@@ -6,13 +6,12 @@ type Props = {
   defaultValue: boolean;
   label: string;
   onChange: Change;
-  onColor: { r: number, g: number, b: number },
-  offColor: { r: number, g: number, b: number }
+  color: { r: number, g: number, b: number };
 };
 
 export default (props: Props) => {
   console.log('BasicToggleComponent.props', props); 
-  const { defaultValue, label, onChange, onColor, offColor } = props;
+  const { defaultValue, label, onChange, color } = props;
   const [checked, setChecked] = useState(defaultValue)
   useEffect(() => setChecked(defaultValue), [defaultValue])
 
@@ -26,10 +25,8 @@ export default (props: Props) => {
       <div className='basic-toggle-container'>
         <button 
           className={checked ? 'on' : 'off'} 
-          style={{ backgroundColor: checked
-            ? `rgb(${onColor.r}, ${onColor.g}, ${onColor.b})`
-            : `rgb(${offColor.r}, ${offColor.g}, ${offColor.b})` 
-          }} 
+          style={{ 
+            backgroundColor: checked ? `rgb(${color.r}, ${color.g}, ${color.b})` : null }} 
           onClick={handleChange}>
           <span className="pin" />
         </button>

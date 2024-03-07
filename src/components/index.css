@@ -47,7 +47,7 @@ table.basic-table-component, th, td {
 }
 
 .basic-toggle-container button {
-  background-color: lightgray;
+  background-color: #555;
   border: 0;
   border-radius: 15px;
   cursor: pointer;

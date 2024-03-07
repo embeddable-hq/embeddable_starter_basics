@@ -22,17 +22,11 @@ export const meta : EmbeddedComponentMeta = {
       description: 'The initial value'
     },
     {
-      name: 'onColor',
+      name: 'color',
       type: ColorType,
-      label: 'On Color',
+      label: 'Color',
       defaultValue: { r: 97, g: 153, b: 243 }
     },
-    {
-      name: 'offColor',
-      type: ColorType,
-      label: 'Off Color',
-      defaultValue: { r: 86, g: 91, b: 100 }
-    }
   ],
   events: [
     {
