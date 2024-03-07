@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-type Color = {r: number, g: number, b: number };
+type Color = { name:string, r: number, g: number, b: number };
 type Change = (color: Color) => void;
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
 export default (props: Props) => {
   const { onChange, value } = props;
   const [color, setColor] = useState(value || { r: 0, g: 0, b: 0 })
-  useEffect(() => onChange(color), [color])
+  useEffect(() => onChange(color), [color, onChange])
 
   const handleChange = (newValue, component) => {
     let numericValue = Number.parseInt(newValue) || 0;
