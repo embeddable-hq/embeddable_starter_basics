@@ -1,5 +1,5 @@
 import { EmbeddedComponentMeta, defineComponent } from '@embeddable.com/react';
-import { Dataset, Dimension, Measure, loadData } from '@embeddable.com/core';
+import { Dataset, isMeasure, isDimension, Dimension, Measure, loadData } from '@embeddable.com/core';
 
 import Component from './index';
 
@@ -31,7 +31,7 @@ export const meta: EmbeddedComponentMeta = {
     },
     {
       name: 'columns',
-      type: 'dimension',
+      type: 'dimensionOrMeasure',
       array: true,
       label: 'Underlying columns',
       config: {
@@ -44,7 +44,7 @@ export const meta: EmbeddedComponentMeta = {
 
 type Inputs = {
   ds: Dataset;
-  slice: Dimension;
+  columns: DimensionOrMeasure[];
   metric: Measure;
   showLegend: boolean;
 };
@@ -59,8 +59,8 @@ export default defineComponent<Inputs>(Component, meta, {
       }),
       underlying: loadData({
         from: inputs.ds,
-        dimensions: inputs.columns,
-        measures: [inputs.metric]
+        dimensions: inputs.columns.filter((c) => isDimension(c)).map(c => c as Dimension),
+        measures: inputs.columns.filter((c) => isMeasure(c)).map(c => c as Measure)
       })
     };
   }
