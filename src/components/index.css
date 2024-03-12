@@ -11,6 +11,10 @@
 :host(.overflow-scroll) {
 	overflow: scroll;
 }
+:host(.example) {
+	z-index: 99999;
+}
+
 
 h1 {
 	margin: 0;

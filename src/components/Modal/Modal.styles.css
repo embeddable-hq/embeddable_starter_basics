@@ -1,0 +1,30 @@
+
+.modal {
+ 
+    position:absolute;
+    width: 100vh;
+    height: 100vh; 
+
+  }
+  
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+    background: white;
+    box-shadow: 0px 1px 8px 0px rgba(35, 39, 51, 0.1);
+    border-radius: 4px;
+    max-height: 90%;
+    position: relative;
+    overflow-x: scroll;
+    z-index: 99999;
+    border: 5px solid gray
+  }
+  
+  .modal-content-close {
+    position: fixed;
+   
+    cursor: pointer;
+    z-index: 99999;
+  }

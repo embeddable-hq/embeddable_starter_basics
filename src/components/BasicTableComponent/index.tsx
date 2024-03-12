@@ -43,11 +43,11 @@ export default (props: Props) => {
           <tbody>{trs}</tbody>
         </table>
         <br/>
-        <div>
+        {embeddableState && rowsPerPage && <div>
           <button disabled={embeddableState.page == 1} onClick={() => setEmbeddableState({ page: embeddableState.page - 1 })}>previous</button>
           <span>Page {embeddableState.page}</span>
           <button disabled={data.length < rowsPerPage} onClick={() => setEmbeddableState({ page: embeddableState.page + 1 })}>next</button>
-        </div>
+        </div>}
       </div>
     )
 }
