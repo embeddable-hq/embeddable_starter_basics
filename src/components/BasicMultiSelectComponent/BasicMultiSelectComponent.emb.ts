@@ -1,9 +1,9 @@
-import { EmbeddedComponentMeta, defineComponent } from '@embeddable.com/react';
+import { EmbeddedComponentMeta, Inputs, defineComponent } from '@embeddable.com/react';
 import { Value } from '@embeddable.com/core';
 
 import Component from './index';
 
-export const meta: EmbeddedComponentMeta = {
+export const meta = {
   name: 'BasicMultiSelectComponent',
   label: 'Basic Multi Select',
   defaultWidth: 320,
@@ -15,7 +15,7 @@ export const meta: EmbeddedComponentMeta = {
       array: true,
       label: 'Options',
       description: 'The options for the dropdown'
-    },
+    }
   ],
   events: [
     {
@@ -28,24 +28,21 @@ export const meta: EmbeddedComponentMeta = {
           array: true
         }
       ]
-    }],
+    }
+  ],
   variables: [
-      {
-          name: 'selected values',
-          type: 'string',
-          array: true,
-          defaultValue: Value.noFilter(),
-          events: [{ name: 'onChange', property: 'value'}]
-      }
-    ]
-};
+    {
+      name: 'selected values',
+      type: 'string',
+      array: true,
+      defaultValue: Value.noFilter(),
+      events: [{ name: 'onChange', property: 'value' }]
+    }
+  ]
+} as const satisfies EmbeddedComponentMeta;
 
-type Inputs = {
-  options: string[];
-}
-
-export default defineComponent<Inputs>(Component, meta, {
-  props: (inputs) => {
+export default defineComponent(Component, meta, {
+  props: (inputs: Inputs<typeof meta>) => {
     return {
       ...inputs
     };

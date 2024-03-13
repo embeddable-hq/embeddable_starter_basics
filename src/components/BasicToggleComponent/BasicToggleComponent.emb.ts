@@ -1,9 +1,9 @@
-import { EmbeddedComponentMeta, defineComponent } from '@embeddable.com/react';
+import { EmbeddedComponentMeta, defineComponent, type Inputs } from '@embeddable.com/react';
 import ColorType from '../../types/Color/Color.type.emb.js';
 
 import Component from './index';
 
-export const meta : EmbeddedComponentMeta = {
+export const meta = {
   name: 'BasicToggleComponent',
   label: 'Basic Toggle',
   defaultWidth: 320,
@@ -23,10 +23,10 @@ export const meta : EmbeddedComponentMeta = {
     },
     {
       name: 'color',
-      type: ColorType,
+      type: ColorType as never,
       label: 'Color',
       defaultValue: { r: 97, g: 153, b: 243 }
-    },
+    }
   ],
   events: [
     {
@@ -38,25 +38,21 @@ export const meta : EmbeddedComponentMeta = {
           type: 'boolean'
         }
       ]
-    }],
+    }
+  ],
   variables: [
     {
       name: 'toggle value',
       type: 'boolean',
       defaultValue: true,
       inputs: ['defaultValue'],
-      events: [{ name: 'onChange', property: 'value'}]
+      events: [{ name: 'onChange', property: 'value' }]
     }
   ]
-};
+} as const satisfies EmbeddedComponentMeta;
 
-type Inputs = {
-  defaultValue: boolean;
-  label: string;
-}
-
-export default defineComponent<Inputs>(Component, meta, {
-  props: (inputs) => {
+export default defineComponent(Component, meta, {
+  props: (inputs: Inputs<typeof meta>) => {
     return {
       ...inputs
     };

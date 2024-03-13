@@ -72,12 +72,12 @@ const chartData = (data, xAxis, metrics) => {
   };
 }
 
-type Props = {
+export type Props = {
   title: string;
   showLegend: boolean;
   ds: Dataset;
   xAxis: Dimension; // { name, title }
-  metrics: Measure; // [{ name, title }]
+  metrics: Measure[]; // [{ name, title }]
   results: DataResponse; // { isLoading, error, data: [{ <name>: <value>, ... }] }
 };
 
