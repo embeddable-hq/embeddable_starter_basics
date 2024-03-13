@@ -1,9 +1,9 @@
-import { EmbeddedComponentMeta, defineComponent } from '@embeddable.com/react';
+import { EmbeddedComponentMeta, defineComponent, Inputs } from '@embeddable.com/react';
 import { Value } from '@embeddable.com/core';
 
 import Component from './index';
 
-export const meta: EmbeddedComponentMeta = {
+export const meta = {
   name: 'BasicInputComponent',
   label: 'Basic Input',
   defaultWidth: 320,
@@ -14,7 +14,7 @@ export const meta: EmbeddedComponentMeta = {
       type: 'string',
       label: 'Label',
       description: 'The text to show next to the textbox'
-    },
+    }
   ],
   events: [
     {
@@ -23,18 +23,15 @@ export const meta: EmbeddedComponentMeta = {
       properties: [
         {
           name: 'value',
-          type: 'string',
+          type: 'string'
         }
       ]
-    }],
-};
+    }
+  ]
+} as const satisfies EmbeddedComponentMeta;
 
-type Inputs = {
-  label: string;
-}
-
-export default defineComponent<Inputs>(Component, meta, {
-  props: (inputs) => {
+export default defineComponent(Component, meta, {
+  props: (inputs: Inputs<typeof meta>) => {
     return {
       ...inputs
     };

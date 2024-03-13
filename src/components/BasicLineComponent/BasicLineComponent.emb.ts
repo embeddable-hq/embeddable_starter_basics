@@ -1,10 +1,10 @@
 import { EmbeddedComponentMeta, defineComponent } from '@embeddable.com/react';
-import { Dataset, Dimension, Granularity, Measure, TimeDimension, loadData } from '@embeddable.com/core';
+import { loadData } from '@embeddable.com/core';
 
-import Component from './index';
+import Component, { Props } from './index';
+import { Inputs } from '@embeddable.com/react';
 
-
-export const meta : EmbeddedComponentMeta = {
+export const meta = {
   name: 'BasicLineComponent',
   label: 'Basic Line',
   classNames: ['add-border'],
@@ -14,13 +14,13 @@ export const meta : EmbeddedComponentMeta = {
       type: 'string',
       label: 'Title',
       description: 'The title for the chart',
-      category: 'Configure chart',
+      category: 'Configure chart'
     },
     {
-      name: "ds",
-      type: "dataset",
-      label: "Dataset to display",
-      category: 'Configure chart',
+      name: 'ds',
+      type: 'dataset',
+      label: 'Dataset to display',
+      category: 'Configure chart'
     },
     {
       name: 'xAxis',
@@ -30,59 +30,48 @@ export const meta : EmbeddedComponentMeta = {
         dataset: 'ds',
         supportedTypes: ['time']
       },
-      category: 'Configure chart',
+      category: 'Configure chart'
     },
     {
       name: 'granularity',
       type: 'granularity',
       label: 'Granularity',
-      category: 'Configure chart',
+      category: 'Configure chart'
     },
     {
-      name: "metrics",
-      type: "measure",
+      name: 'metrics',
+      type: 'measure',
       array: true,
-      label: "Metrics",
+      label: 'Metrics',
       config: {
-        dataset: "ds",
+        dataset: 'ds'
       },
-      category: 'Configure chart',
+      category: 'Configure chart'
     },
     {
       name: 'showLegend',
       type: 'boolean',
       label: 'Turn on the legend',
-      category: 'Chart settings',
-    },
-  ],
-};
-
-type Inputs = {
-  title: string;
-  ds: Dataset;
-  xAxis: Dimension;
-  granularity: Granularity;
-  metrics: Measure[];
-  showLegend: boolean;
-}
+      category: 'Chart settings'
+    }
+  ]
+} as const satisfies EmbeddedComponentMeta;
 
 const timeDimension = (dimension, granularity) => {
-  return ({
+  return {
     dimension: dimension.name,
-    granularity: granularity,
-  });
-}
+    granularity: granularity
+  };
+};
 
-export default defineComponent<Inputs>(Component, meta, {
-  props: (inputs) => {
+export default defineComponent(Component, meta, {
+  props: (inputs: Inputs<typeof meta>) => {
     return {
       ...inputs,
       results: loadData({
         from: inputs.ds,
-        timeDimensions: [
-          timeDimension(inputs.xAxis, inputs.granularity)
-        ],
-        measures: inputs.metrics,
+        timeDimensions: [timeDimension(inputs.xAxis, inputs.granularity)],
+        measures: inputs.metrics
       })
     };
   }

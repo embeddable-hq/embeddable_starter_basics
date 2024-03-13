@@ -6,7 +6,7 @@ let timeout: NodeJS.Timeout | null = null;
 
 type Props = {
   label: string;
-  defaultValue: string;
+  defaultValue?: string;
   onChange: Change;
 };
 
