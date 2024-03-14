@@ -12,7 +12,7 @@ import {
 } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import { Dimension, Measure, Dataset } from "@embeddable.com/core";
-import { DataResponse } from "@embeddable.com/react";
+import { DataResponse } from "@embeddable.com/core";
 import Loading from '../util/Loading'
 import Error from '../util/Error'
 
@@ -79,10 +79,10 @@ export default (props: Props) => {
   }
 
   // Chart.js pie expects labels like so: ['US', 'UK', 'Germany']
-  const labels = data.map(d => d[slice.name]);
+  const labels = data?.map(d => d[slice.name]);
 
   // Chart.js pie expects counts like so: [23, 10, 5]
-  const counts = data.map(d => d[metric.name]);
+  const counts = data?.map(d => d[metric.name]);
 
   return <Pie options={chartOptions(showLegend)} 
               data={chartData(labels, counts)} />
