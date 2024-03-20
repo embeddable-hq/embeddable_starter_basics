@@ -22,7 +22,7 @@ export default (props: Props) => {
 
     return (
         <div className='basic-multi-select-component'>
-        {options.map((option, i) => (
+        {options?.map((option, i) => (
             <div key={i}>
                 <input
                     type="checkbox"
