@@ -1,5 +1,5 @@
 import { EmbeddedComponentMeta, defineComponent, type Inputs } from '@embeddable.com/react';
-import ColorType from '../../types/Color/Color.type.emb.js';
+import ColorType from '../../types/Color/Color.type.emb';
 
 import Component from './index';
 
