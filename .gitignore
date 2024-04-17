@@ -3,3 +3,4 @@ node_modules
 embeddable-entry-point.jsx
 .cubestore
 .env
+*.emb-temp.js
