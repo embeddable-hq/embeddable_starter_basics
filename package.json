@@ -26,8 +26,8 @@
   "devDependencies": {
     "@embeddable.com/core": "^2.5.5",
     "@embeddable.com/react": "^2.5.5",
-    "@embeddable.com/sdk-core": "3.0.0",
-    "@embeddable.com/sdk-react": "3.0.0",
+    "@embeddable.com/sdk-core": "3.1.1",
+    "@embeddable.com/sdk-react": "3.1.0",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
